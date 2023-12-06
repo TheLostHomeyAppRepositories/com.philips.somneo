@@ -1,0 +1,116 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.philips.somneo",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Philips Sleepmapper"
+  },
+  "description": {
+    "en": "Adds support for the Philips Somneo Wakeup light devices"
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Vincent Boer",
+    "email": "vincent@vdboer.nl"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Wakeup light"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "dim",
+        "measure_humidity",
+        "measure_luminance",
+        "measure_noise",
+        "measure_temperature",
+        "onoff"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/wakeup-light/assets/images/small.png",
+        "large": "/drivers/wakeup-light/assets/images/large.png",
+        "xlarge": "/drivers/wakeup-light/assets/images/xlarge.png"
+      },
+      "discovery": "SSDP",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "options": {
+            "singular": true
+          },
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "wakeup-light"
+    }
+  ],
+  "capabilities": {
+    "nightlight": {
+      "type": "boolean",
+      "title": {
+        "en": "Night Light"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": true
+    },
+    "sunset": {
+      "type": "boolean",
+      "title": {
+        "en": "Sunset"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "button",
+      "uiQuickAction": true
+    }
+  },
+  "discovery": {
+    "SSDP": {
+      "type": "ssdp",
+      "ssdp": {
+        "search": "urn:philips-com:device:DiProduct:1"
+      },
+      "id": "{{headers.usn}}",
+      "conditions": [
+        [
+          {
+            "field": "headers.st",
+            "match": {
+              "type": "string",
+              "value": "philips-com:device:DiProduct:1"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
