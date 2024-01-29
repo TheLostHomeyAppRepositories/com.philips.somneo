@@ -78,7 +78,7 @@ class WakeupLightDevice extends Device {
 
   async updateSensors()
   {
-    somneoapi.getSensors(this.getData().address).then(sensordata => {
+    somneoapi.getSensors(this.getStoreValue('address')).then(sensordata => {
         //this.log(JSON.stringify(sensordata))
         this.setCapabilityValue('measure_humidity', sensordata.msrhu);
         this.setCapabilityValue('measure_luminance', sensordata.mslux);
@@ -107,7 +107,7 @@ class WakeupLightDevice extends Device {
     await this.setCapabilityValue('onoff', false);
     await this.setCapabilityValue('nightlight', false);
     var dim = 25*this.getCapabilityValue('dim');
-    somneoapi.putMainLightState(this.getData().address, false, dim, value, false).then(lightstatedata => {
+    somneoapi.putMainLightState(this.getStoreValue('address'), false, dim, value, false).then(lightstatedata => {
       this.log(JSON.stringify(lightstatedata))
     }).catch(e => { 
       this.log('Error on updating Light status: '+e);
@@ -120,7 +120,7 @@ class WakeupLightDevice extends Device {
     await this.setCapabilityValue('sunset', false);
     await this.setCapabilityValue('onoff', false);
     var dim = 25*this.getCapabilityValue('dim');
-    somneoapi.putMainLightState(this.getData().address, false, dim, false, value).then(lightstatedata => {
+    somneoapi.putMainLightState(this.getStoreValue('address'), false, dim, false, value).then(lightstatedata => {
       this.log(JSON.stringify(lightstatedata))
     }).catch(e => { 
       this.log('Error on updating Light status: '+e);
@@ -135,7 +135,8 @@ class WakeupLightDevice extends Device {
     console.info('send light update to device ['+onoff+'|'+dim+']');
     var sunrise = false;
     var nightlight = false;
-    somneoapi.putMainLightState(this.getData().address, onoff, dim, sunrise, nightlight).then(lightstatedata => {
+    this.getStoreValue('address')
+    somneoapi.putMainLightState(this.getStoreValue('address'), onoff, dim, sunrise, nightlight).then(lightstatedata => {
       this.log(JSON.stringify(lightstatedata))
     }).catch(e => { 
       this.log('Error on updating Light status: '+e);
@@ -145,7 +146,7 @@ class WakeupLightDevice extends Device {
 
   async updateMainLightState()
   {
-    somneoapi.getMainLightState(this.getData().address).then(lightstatedata => {
+    somneoapi.getMainLightState(this.getStoreValue('address')).then(lightstatedata => {
       //this.log(JSON.stringify(lightstatedata))
       this.setCapabilityValue('onoff', lightstatedata.onoff);
       this.setCapabilityValue('dim', (lightstatedata.ltlvl/25));
@@ -158,7 +159,7 @@ class WakeupLightDevice extends Device {
 
   async updateTimerState()
   {
-    somneoapi.getTimersState(this.getData().address).then(timerstatedata => {
+    somneoapi.getTimersState(this.getStoreValue('address')).then(timerstatedata => {
       this.log(JSON.stringify(timerstatedata))
     }).catch(e => { 
       this.log('Error on retrieving Timer status: '+e);
@@ -167,7 +168,7 @@ class WakeupLightDevice extends Device {
 
   async updateAlarmState()
   {
-    somneoapi.getAlarmState(this.getData().address).then(alarmstatedata => {
+    somneoapi.getAlarmState(this.getStoreValue('address')).then(alarmstatedata => {
       this.log(JSON.stringify(alarmstatedata))
     }).catch(e => { 
       this.log('Error on retrieving Alarm status: '+e);
@@ -176,7 +177,7 @@ class WakeupLightDevice extends Device {
 
   async updateAlarmSchedules()
   {
-    somneoapi.getAlarmSchedules(this.getData().address).then(alarmscheduledata => {
+    somneoapi.getAlarmSchedules(this.getStoreValue('address')).then(alarmscheduledata => {
       this.log(JSON.stringify(alarmscheduledata))
     }).catch(e => { 
       this.log('Error on retrieving Alarm schedules: '+e);
@@ -202,14 +203,14 @@ class WakeupLightDevice extends Device {
   async onDiscoveryAvailable(discoveryResult) {
     this.log('Located device and ready to retrieve data...');
     this.log('Device: '+this.getName()+' was located with address '+discoveryResult.address);
-    this.getData().address = discoveryResult.address;
+    this.setStoreValue('address',discoveryResult.address);
     // This method will be executed once when the device has been found (onDiscoveryResult returned true)
   }
 
   onDiscoveryAddressChanged(discoveryResult) {
     // Update your connection details here, reconnect when the device is offline
     this.log('Device: '+this.getName()+' changed its address to '+discoveryResult.address);
-    this.getData().address = discoveryResult.address;
+    this.setStoreValue('address',discoveryResult.address);
   }
 
   onDiscoveryLastSeenChanged(discoveryResult) {
