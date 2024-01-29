@@ -7,7 +7,7 @@ const somneoapi = require('../../api/somneo_api');
 class WakeupLightDevice extends Device {
 
   async onInit() {
-    this.log('Wakeup-Light Device has been initialized');
+    this.log('Wakeup-Light: '+this.getName()+' - Device has been initialized');
     await this.fixCapabilities();
     this.start_update_loops();
   }
@@ -46,13 +46,13 @@ class WakeupLightDevice extends Device {
     this.refreshState();
   }
   update_loop_sensors() {
-    let interval = 8000;
+    let interval = 30000;
     this._timerSensors = setInterval(() => {
         this.updateSensors();
     }, interval);
   }
   update_loop_mainlight() {
-    let interval = 11000;
+    let interval = 31000;
     this._timerLight = setInterval(() => {
         this.updateMainLightState();
     }, interval);
@@ -73,7 +73,7 @@ class WakeupLightDevice extends Device {
   }
 
   async onAdded() {
-    this.log('Wakeup-Light Device has been added');
+    this.log('Wakeup-Light: '+this.getName()+' - Device has been added');
   }
 
   async updateSensors()
@@ -127,6 +127,7 @@ class WakeupLightDevice extends Device {
       return e;
     });
   }
+
   async setMainLightState()
   {
     var onoff = this.getCapabilityValue('onoff');
@@ -183,15 +184,15 @@ class WakeupLightDevice extends Device {
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log('Wakeup-Light Device settings where changed');
+    this.log('Wakeup-Light: '+this.getName()+' - Device settings where changed');
   }
 
   async onRenamed(name) {
-    this.log('Wakeup-Light Device was renamed');
+    this.log('Wakeup-Light: '+this.getName()+' - Device was renamed');
   }
 
   async onDeleted() {
-    this.log('WakeupLightDevice has been deleted');
+    this.log('Wakeup-Light: '+this.getName()+' - has been deleted');
   }
 
   onDiscoveryResult(discoveryResult) {
@@ -200,12 +201,14 @@ class WakeupLightDevice extends Device {
 
   async onDiscoveryAvailable(discoveryResult) {
     this.log('Located device and ready to retrieve data...');
+    this.log('Device: '+this.getName()+' was located with address '+discoveryResult.address);
+    this.getData().address = discoveryResult.address;
     // This method will be executed once when the device has been found (onDiscoveryResult returned true)
   }
 
   onDiscoveryAddressChanged(discoveryResult) {
     // Update your connection details here, reconnect when the device is offline
-    this.log('Device: '+this.name+' changed its address to '+discoveryResult.address);
+    this.log('Device: '+this.getName()+' changed its address to '+discoveryResult.address);
     this.getData().address = discoveryResult.address;
   }
 

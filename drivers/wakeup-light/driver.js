@@ -23,11 +23,13 @@ class WakeupLightDriver extends Driver {
     
     const devices = Object.values(discoveryResults).map(discoveryResult => {
       this.log(JSON.stringify(discoveryResult.headers.location));
+      this.log(JSON.stringify(discoveryResult));
       return {
         name: 'Wake-up light',
         data: {
           location: discoveryResult.headers.location,
-          address: discoveryResult.address
+          address: discoveryResult.address,
+          id: discoveryResult.id
         },
       };
     });
