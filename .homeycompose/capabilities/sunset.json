@@ -1,6 +1,9 @@
 {
     "type": "boolean",
     "title": { "en": "Sunset" },
+    "insights": true,
+    "insightsTitleTrue": { "en": "The sunset was activated"},
+    "insightsTitleFalse": { "en": "The sunset was deactivated"},
     "getable": true,
     "setable": true,
     "uiComponent": "button",

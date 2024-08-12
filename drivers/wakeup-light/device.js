@@ -34,8 +34,9 @@ class WakeupLightDevice extends Device {
     this.registerCapabilityListener('onoff', this.onCapabilityOnoff.bind(this));
     this.registerCapabilityListener('dim', this.onCapabilityDim.bind(this));
     this.registerCapabilityListener('nightlight', this.onCapabilityNightlight.bind(this));
+    this.setupFlowNightlightMode();
     this.registerCapabilityListener('sunset', this.onCapabilitySunset.bind(this));
-    
+    this.setupFlowSunsetMode();
   }
 
 
@@ -217,6 +218,40 @@ class WakeupLightDevice extends Device {
     // When the device is offline, try to reconnect here
     //this.api.reconnect().catch(this.error); 
   }
+
+  async setupFlowSunsetMode()
+  {
+    this._setSunsetMode = await this.homey.flow.getActionCard('set-sunset'); 
+    this._setSunsetMode
+      .registerRunListener(async (args, state) => {
+        this.log('attempt to set sunset mode: '+JSON.stringify(args.start));
+        return new Promise((resolve, reject) => {
+          this.log('now send the capability command');
+          args.device.onCapabilitySunset(args.start).then(() => {
+            resolve(true);
+          }, (_error) => {
+            reject(_error);
+          });
+        });
+      });
+  }
+
+  async setupFlowNightlightMode()
+  {
+    this._setNighlightMode = await this.homey.flow.getActionCard('set-nightlight'); 
+    this._setNighlightMode
+      .registerRunListener(async (args, state) => {
+        this.log('attempt to set nightlight mode: '+JSON.stringify(args.mode));
+        return new Promise((resolve, reject) => {
+          this.log('now send the capability command');
+          args.device.onCapabilityNightlight(args.mode).then(() => {
+            resolve(true);
+          }, (_error) => {
+            reject(_error);
+          });
+        });
+      });
+    }
 }
 
 module.exports = WakeupLightDevice;

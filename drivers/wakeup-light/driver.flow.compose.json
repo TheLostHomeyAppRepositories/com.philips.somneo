@@ -1,0 +1,96 @@
+{
+    "triggers": [
+      {
+        "id": "sunset_false",
+        "title": {
+          "en": "The sunset mode is deactivated"
+        },
+        "hint": {
+          "en": "When the sunset mode is deactivated"
+        },
+        "$filter": "capabilities=sunset"
+      },
+      {
+        "id": "sunset_true",
+        "title": {
+          "en": "The sunset mode is activated"
+        },
+        "hint": {
+          "en": "When the sunset mode is activated"
+        },
+        "$filter": "capabilities=sunset"
+      },
+      {
+        "id": "nightlight_false",
+        "title": {
+          "en": "The nightlight is turned off"
+        },
+        "hint": {
+          "en": "When the nightlight has been turned off"
+        },
+        "$filter": "capabilities=nightlight"
+      },
+      {
+        "id": "nightlight_true",
+        "title": {
+          "en": "The nightlight is turned on"
+        },
+        "hint": {
+          "en": "When the nightlight has been turned on"
+        },
+        "$filter": "capabilities=nightlight"
+      }
+    ],
+    "actions": [
+        {
+            "id": "set-sunset",
+            "title": {
+              "en": "Start sunset"
+            },
+            "hint": {
+              "en": "Toggles the sunset mode of the wake-up light"
+            },
+            "titleFormatted": {
+              "en": "Turns the sunset mode on or off: [[start]]"
+            },
+            "$filter": "capabilities=sunset",
+            "args": [
+              {
+                "type": "checkbox",
+                "name": "start",
+                "title": {
+                  "en": "Start"
+                },
+                "placeholder": {
+                  "en": "yes"
+                }
+              }
+            ]
+          },
+          {
+            "id": "set-nightlight",
+            "title": {
+              "en": "Set the nightligh"
+            },
+            "hint": {
+              "en": "Toggles the nightlight"
+            },
+            "titleFormatted": {
+              "en": "Turns the nightlight on or off: [[mode]]"
+            },
+            "$filter": "capabilities=nightlight",
+            "args": [
+              {
+                "type": "checkbox",
+                "name": "mode",
+                "title": {
+                  "en": "On"
+                },
+                "placeholder": {
+                  "en": "yes"
+                }
+              }
+            ]
+          }
+         ]
+}

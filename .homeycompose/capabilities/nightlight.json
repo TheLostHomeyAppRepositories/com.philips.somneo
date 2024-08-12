@@ -1,6 +1,9 @@
 {
     "type": "boolean",
     "title": { "en": "Night Light" },
+    "insights": true,
+    "insightsTitleTrue": { "en": "The nightlight was turned on"},
+    "insightsTitleFalse": { "en": "The nightlight was turned off"},
     "getable": true,
     "setable": true,
     "uiComponent": "button",
