@@ -10,5 +10,8 @@
   },
   "1.0.3": {
     "en": "Different ip storage"
+  },
+  "1.1.0": {
+    "en": "Added flow card support for the sunset and nightlight options"
   }
 }
