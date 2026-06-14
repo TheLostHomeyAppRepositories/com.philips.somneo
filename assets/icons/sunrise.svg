@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Sunrise preview</title>
+  <desc>Sun rising above the horizon with an upward arrow</desc>
+  <g fill="#000">
+    <circle cx="128" cy="120" r="40"/>
+    <rect x="30" y="178" width="196" height="14" rx="7"/>
+    <polygon points="128,34 104,68 152,68"/>
+    <rect x="40" y="118" width="24" height="12" rx="6"/>
+    <rect x="192" y="118" width="24" height="12" rx="6"/>
+  </g>
+</svg>

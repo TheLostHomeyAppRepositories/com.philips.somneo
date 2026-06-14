@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Sunset</title>
+  <desc>Sun setting at the horizon with a downward arrow</desc>
+  <g fill="#000">
+    <circle cx="128" cy="104" r="40"/>
+    <rect x="30" y="178" width="196" height="14" rx="7"/>
+    <polygon points="128,224 104,190 152,190"/>
+    <rect x="40" y="102" width="24" height="12" rx="6"/>
+    <rect x="192" y="102" width="24" height="12" rx="6"/>
+  </g>
+</svg>

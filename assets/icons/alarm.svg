@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Active alarm</title>
+  <desc>Alarm clock with bells</desc>
+  <g fill="#000" fill-rule="evenodd">
+    <circle cx="80" cy="72" r="26"/>
+    <circle cx="176" cy="72" r="26"/>
+    <path d="M60 150 a68 68 0 1 0 136 0 a68 68 0 1 0 -136 0 Z M74 150 a54 54 0 1 1 108 0 a54 54 0 1 1 -108 0 Z"/>
+    <rect x="123" y="112" width="10" height="44" rx="5"/>
+    <rect x="123" y="146" width="40" height="10" rx="5"/>
+    <rect x="66" y="206" width="16" height="26" rx="6" transform="rotate(-28 74 219)"/>
+    <rect x="174" y="206" width="16" height="26" rx="6" transform="rotate(28 182 219)"/>
+  </g>
+</svg>

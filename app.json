@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.philips.somneo",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "compatibility": ">=5.0.0",
   "brandColor": "#4C3628",
   "sdk": 3,
@@ -1287,6 +1287,7 @@
   "capabilities": {
     "alarm_active": {
       "type": "boolean",
+      "icon": "/assets/icons/alarm.svg",
       "title": {
         "en": "Active alarm"
       },
@@ -1303,6 +1304,7 @@
     },
     "bedtime_tracking": {
       "type": "boolean",
+      "icon": "/assets/icons/sleep.svg",
       "title": {
         "en": "Sleep Tracking"
       },
@@ -1319,6 +1321,7 @@
     },
     "media_input": {
       "type": "enum",
+      "icon": "/assets/icons/radio.svg",
       "title": {
         "en": "Source"
       },
@@ -1342,6 +1345,7 @@
     },
     "nightlight": {
       "type": "boolean",
+      "icon": "/assets/icons/nightlight.svg",
       "title": {
         "en": "Night Light"
       },
@@ -1359,6 +1363,7 @@
     },
     "relax_breathe": {
       "type": "boolean",
+      "icon": "/assets/icons/relax_breathe.svg",
       "title": {
         "en": "Relax Breathe"
       },
@@ -1376,6 +1381,7 @@
     },
     "sunrise_preview": {
       "type": "boolean",
+      "icon": "/assets/icons/sunrise.svg",
       "title": {
         "en": "Sunrise Preview"
       },
@@ -1393,6 +1399,7 @@
     },
     "sunset": {
       "type": "boolean",
+      "icon": "/assets/icons/sunset.svg",
       "title": {
         "en": "Sunset"
       },

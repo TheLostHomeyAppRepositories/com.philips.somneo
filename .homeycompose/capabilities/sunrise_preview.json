@@ -1,5 +1,6 @@
 {
     "type": "boolean",
+    "icon": "/assets/icons/sunrise.svg",
     "title": { "en": "Sunrise Preview" },
     "insights": true,
     "insightsTitleTrue": { "en": "The sunrise preview was activated"},

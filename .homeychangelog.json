@@ -49,5 +49,8 @@
   },
   "2.0.11": {
     "en": "The alarm list is briefly cached while you pick it in a flow card, so configuring alarm flows no longer reads the device on every keystroke. Removed unused code."
+  },
+  "2.0.12": {
+    "en": "Added fitting icons for the night light, sunset, sunrise preview, relax breathe, sleep tracking, active alarm and audio source controls."
   }
 }

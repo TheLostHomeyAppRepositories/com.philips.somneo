@@ -1,5 +1,6 @@
 {
     "type": "boolean",
+    "icon": "/assets/icons/sleep.svg",
     "title": { "en": "Sleep Tracking" },
     "insights": true,
     "insightsTitleTrue": { "en": "Sleep tracking was turned on"},

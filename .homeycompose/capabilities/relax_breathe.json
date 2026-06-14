@@ -1,5 +1,6 @@
 {
     "type": "boolean",
+    "icon": "/assets/icons/relax_breathe.svg",
     "title": { "en": "Relax Breathe" },
     "insights": true,
     "insightsTitleTrue": { "en": "Relax breathe was started"},

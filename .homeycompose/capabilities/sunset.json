@@ -1,5 +1,6 @@
 {
     "type": "boolean",
+    "icon": "/assets/icons/sunset.svg",
     "title": { "en": "Sunset" },
     "insights": true,
     "insightsTitleTrue": { "en": "The sunset was activated"},

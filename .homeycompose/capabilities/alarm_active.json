@@ -1,5 +1,6 @@
 {
     "type": "boolean",
+    "icon": "/assets/icons/alarm.svg",
     "title": { "en": "Active alarm" },
     "insights": true,
     "insightsTitleTrue": { "en": "An alarm went off" },

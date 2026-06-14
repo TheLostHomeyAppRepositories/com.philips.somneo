@@ -1,5 +1,6 @@
 {
     "type": "enum",
+    "icon": "/assets/icons/radio.svg",
     "title": { "en": "Source" },
     "getable": true,
     "setable": true,

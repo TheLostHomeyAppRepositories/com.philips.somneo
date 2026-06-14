@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+  <title>Night light</title>
+  <desc>Crescent moon for the night light</desc>
+  <g fill="#000">
+    <path d="M150 52 A88 88 0 1 0 150 204 A80 80 0 1 1 150 52 Z"/>
+  </g>
+</svg>
