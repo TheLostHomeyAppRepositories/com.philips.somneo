@@ -52,5 +52,8 @@
   },
   "2.0.12": {
     "en": "Added fitting icons for the night light, sunset, sunrise preview, relax breathe, sleep tracking, active alarm and audio source controls."
+  },
+  "2.0.13": {
+    "en": "Updated development dependencies to resolve known security vulnerabilities. No functional changes."
   }
 }
